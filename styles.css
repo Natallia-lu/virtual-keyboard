@@ -1,0 +1,63 @@
+.h1,
+.h2 {
+    display: block;
+    color: #494848;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.h1 {
+    font-size: 40px;
+}
+
+.h2 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.keyboard {
+    margin: 0 auto;
+    width: 800px;
+}
+
+.text-place {
+    background-color: #f4ecec;
+    display: block;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 40px;
+}
+
+.letter,
+.special,
+.space {
+    margin: 5px;
+    background-color: #888888;
+    height: 30px;
+}
+
+.letter:hover,
+.special:hover,
+.space:hover {
+    background-color: #6e6d6d;
+    cursor: pointer;
+}
+
+.letter {
+    width: 40px;
+}
+
+.special {
+    width: 100px;
+}
+
+.space {
+    width: 350px;
+}
+
+.row {
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
