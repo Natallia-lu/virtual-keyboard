@@ -44,9 +44,9 @@ set.forEach(elem => {
                 textPlace.innerHTML += ' '
             } else if (button.innerHTML === 'Enter') {
                 textPlace.innerHTML += '\n'
-            } else if (button.innerHTML === 'Shift' || button.innerHTML === 'Ctrl' || button.innerHTML === 'Win' || button.innerHTML === 'Fn' || button.innerHTML === 'Alt' || button.innerHTML === 'CapsLk') {
+            } else if (button.innerHTML === 'CapsLk') {
                 button.classList.toggle('upcase');
-            } else if (button.innerHTML === '←' || button.innerHTML === '↑' || button.innerHTML === '→' || button.innerHTML === '↓') {
+            } else if (button.innerHTML === 'Shift' || button.innerHTML === 'Ctrl' || button.innerHTML === 'Win' || button.innerHTML === 'Fn' || button.innerHTML === 'Alt') {
                 textPlace.innerHTML
             } else {
                 if (row.childNodes.classList === 'upcase') {
