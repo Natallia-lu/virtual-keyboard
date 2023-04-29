@@ -44,10 +44,16 @@ set.forEach(elem => {
                 textPlace.innerHTML += ' '
             } else if (button.innerHTML === 'Enter') {
                 textPlace.innerHTML += '\n'
-            } else if (button.innerHTML === 'Shift' || button.innerHTML === 'Ctrl' || button.innerHTML === 'Win' || button.innerHTML === 'Fn' || button.innerHTML === 'Alt' || button.innerHTML === '←' || button.innerHTML === '↑' || button.innerHTML === '→' || button.innerHTML === '↓' || button.innerHTML === 'CapsLk') {
+            } else if (button.innerHTML === 'Shift' || button.innerHTML === 'Ctrl' || button.innerHTML === 'Win' || button.innerHTML === 'Fn' || button.innerHTML === 'Alt' || button.innerHTML === 'CapsLk') {
+                button.classList.toggle('upcase');
+            } else if (button.innerHTML === '←' || button.innerHTML === '↑' || button.innerHTML === '→' || button.innerHTML === '↓') {
                 textPlace.innerHTML
             } else {
-                textPlace.innerHTML += button.innerHTML.toLowerCase()
+                if (row.childNodes.classList === 'upcase') {
+                textPlace.innerHTML += button.innerHTML.toUpperCase()
+                } else {
+                    textPlace.innerHTML += button.innerHTML.toLowerCase()
+                }
             }
         })
 
@@ -72,7 +78,7 @@ set.forEach(elem => {
             } else if (index.key === 'Enter' && button.innerHTML===index.key) {
                 button.classList.toggle('active')
                 textPlace.innerHTML += '\n'
-            }
+            } 
         })
             
         document.body.addEventListener('keyup', function(){

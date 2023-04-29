@@ -53,7 +53,7 @@
 }
 
 .space {
-    width: 350px;
+    width: 340px;
 }
 
 .row {
@@ -65,5 +65,11 @@
 .active {
     color: #20ffff;
     font-size: 30px;
-    background-color: #08746d;
+    background-color: #088078;
+}
+
+.upcase {
+    color: #20ffff;
+    font-size: 30px;
+    background-color: #088078;
 }
