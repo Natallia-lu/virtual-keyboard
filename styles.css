@@ -32,9 +32,9 @@
 .special,
 .space {
     margin: 5px;
-    background-color: #3a6562;
     height: 30px;
     color: #def6f4;
+    box-shadow: 2px 2px #088078;
 }
 
 .letter:hover,
@@ -42,18 +42,22 @@
 .space:hover {
     background-color: #114740;
     cursor: pointer;
+    box-shadow: 2px 2px #0cafa5;
 }
 
 .letter {
     width: 40px;
+    background-color: #3a6562;
 }
 
 .special {
     width: 100px;
+    background-color: #284643;
 }
 
 .space {
-    width: 340px;
+    width: 330px;
+    background-color: #223b39;
 }
 
 .row {
@@ -66,6 +70,7 @@
     color: #20ffff;
     font-size: 30px;
     background-color: #088078;
+    box-shadow: 2px 2px #14eee0;
 }
 
 .upcase {
