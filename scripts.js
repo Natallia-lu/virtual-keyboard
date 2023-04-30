@@ -2,22 +2,22 @@ let set = [['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '+', 'Ba
 let name = document.createElement('h1');
 name.classList.add('h1');
 name.innerHTML = 'RSS Виртуальная клавиатура'
-document.body.append(name)
+document.body.append(name);
 
 let keyboard = document.createElement('div');
 keyboard.className = 'keyboard';
-keyboard.classList.add('keyboard')
-document.body.append(keyboard)
+keyboard.classList.add('keyboard');
+document.body.append(keyboard);
 
 let textPlace = document.createElement('textarea');
 textPlace.className = 'textPlace';
 textPlace.classList.add('text-place');
-keyboard.append(textPlace)
+keyboard.append(textPlace);
 
 set.forEach(elem => {
-   let row = document.createElement('div')
-   row.classList.add('row')
-   keyboard.append(row)
+   let row = document.createElement('div');
+   row.classList.add('row');
+   keyboard.append(row);
     elem.forEach(el => {
         let button = document.createElement('button');
         button.className = 'symbol';
@@ -32,6 +32,34 @@ set.forEach(elem => {
             button.classList.add('letter');
         }
 
+            //Key
+            button.addEventListener('mouseup', function(){
+                button.classList.remove('active');
+            })
+            
+            document.body.addEventListener('keydown', function(index){
+                if(button.innerHTML===index.key.toUpperCase()){
+                    button.classList.toggle('active');
+                    textPlace.innerHTML += index.key.toLowerCase()
+                } else if (index.key === 'Backspace' && button.innerHTML===index.key){
+                    button.classList.toggle('active');
+                    textPlace.innerHTML = textPlace.innerHTML.slice(0, -1)
+                } else if (index.key === 'Tab' && button.innerHTML===index.key) {
+                    button.classList.toggle('active');   
+                    textPlace.innerHTML += '    '
+                } else if (index.key === ' ' && button.innerHTML === 'Space') {
+                    button.classList.toggle('active');
+                    textPlace.innerHTML += ' '
+                } else if (index.key === 'Enter' && button.innerHTML===index.key) {
+                    button.classList.toggle('active');
+                    textPlace.innerHTML += '\n'
+                } 
+            })
+                
+            document.body.addEventListener('keyup', function(){
+                button.classList.remove('active')
+            });
+
         //Mouse
         button.addEventListener('mousedown', function(){
             button.classList.toggle('active');
@@ -45,7 +73,7 @@ set.forEach(elem => {
             } else if (button.innerHTML === 'Enter') {
                 textPlace.innerHTML += '\n'
             } else if (button.innerHTML === 'CapsLk') {
-                button.classList.toggle('upcase');
+                button.classList.toggle('upcase')
             } else if (button.innerHTML === 'Shift' || button.innerHTML === 'Ctrl' || button.innerHTML === 'Win' || button.innerHTML === 'Fn' || button.innerHTML === 'Alt') {
                 textPlace.innerHTML
             } else {
@@ -55,36 +83,8 @@ set.forEach(elem => {
                     textPlace.innerHTML += button.innerHTML.toLowerCase()
                 }
             }
-        })
-
-            //Key
-        button.addEventListener('mouseup', function(){
-            button.classList.remove('active');
-        })
-        
-        document.body.addEventListener('keydown', function(index){
-            if(button.innerHTML===index.key.toUpperCase()){
-                button.classList.toggle('active')
-                textPlace.innerHTML += index.key.toLowerCase()
-            } else if (index.key === 'Backspace' && button.innerHTML===index.key){
-                button.classList.toggle('active')
-                textPlace.innerHTML = textPlace.innerHTML.slice(0, -1)
-            } else if (index.key === 'Tab' && button.innerHTML===index.key) {
-                button.classList.toggle('active')    
-                textPlace.innerHTML += '    '
-            } else if (index.key === ' ' && button.innerHTML === 'Space') {
-                button.classList.toggle('active')
-                textPlace.innerHTML += ' '
-            } else if (index.key === 'Enter' && button.innerHTML===index.key) {
-                button.classList.toggle('active')
-                textPlace.innerHTML += '\n'
-            } 
-        })
-            
-        document.body.addEventListener('keyup', function(){
-            button.classList.remove('active');
-        })
-    })
+        }) 
+    });
 });
 
 let comment = document.createElement('h2');
